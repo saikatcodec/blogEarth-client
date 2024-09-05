@@ -18,7 +18,7 @@ function Register() {
     <form className="mt-10 space-y-3">
       {/* User Email */}
       <TextInput name="email" placeholder="Enter Email" text="Email*">
-        <Envelope size={19} color="#AFBACA" />
+        <Envelope size={InputIconTag.size} color={InputIconTag.color} />
       </TextInput>
 
       {/* User Full Name */}
