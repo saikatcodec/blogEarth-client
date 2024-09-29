@@ -6,10 +6,13 @@ const PasswordInput = (props) => {
       <Label htmlFor={props.name}>{props.text}</Label>
       <div className="relative">
         <Input
+          name={props.name}
           id={props.name}
           placeholder={props.placeholder}
           className="ps-11"
           type="password"
+          value={props.value}
+          onChange={props.onChange}
         />
         <InputIcon>{props.children}</InputIcon>
       </div>
