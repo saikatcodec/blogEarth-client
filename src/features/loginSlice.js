@@ -2,16 +2,18 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
 import { loginUrl } from "../../utils/userUrl";
+import getToken from "./../../utils/getTokenFromLocalStore";
 
 const initialState = {
   loding: false,
   user: null,
+  token: getToken(),
   error: "",
 };
 
 export const loginApi = createAsyncThunk(
   "auth/loginApi",
-  async ({ email, password }) => {
+  async ({ email, password }, thunkApi) => {
     try {
       const response = await axios.post(loginUrl, {
         email,
@@ -20,7 +22,7 @@ export const loginApi = createAsyncThunk(
 
       return response.data;
     } catch (e) {
-      return e.response.data;
+      return thunkApi.rejectWithValue(e.response.data);
     }
   }
 );
@@ -31,13 +33,27 @@ const loginSlice = createSlice({
   extraReducers: (builder) => {
     builder.addCase(loginApi.pending, (state) => {
       state.loding = true;
-      console.log("Loading........");
     });
+
     builder.addCase(loginApi.fulfilled, (state, action) => {
-      console.log(action);
+      const data = action.payload;
+
+      state.loding = false;
+      if (data.status === "success") {
+        state.user = data.data.user_email;
+        state.token = `Bearer ${data.data.token}`;
+        localStorage.setItem("token", `Bearer ${data.data.token}`);
+      } else {
+        state.error = data.msg;
+        state.user = null;
+        console.log("here");
+      }
     });
+
     builder.addCase(loginApi.rejected, (state, action) => {
-      console.log("from error", action);
+      state.error = action.payload;
+      state.loding = false;
+      state.user = null;
     });
   },
 });
