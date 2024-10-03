@@ -1,8 +1,8 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
-import { loginUrl } from "../../utils/userUrl";
-import getToken from "./../../utils/getTokenFromLocalStore";
+import { loginUrl } from "../../../utils/userUrl";
+import getToken from "../../../utils/getTokenFromLocalStore";
 
 const initialState = {
   loding: false,
@@ -54,6 +54,7 @@ const loginSlice = createSlice({
       state.error = action.payload;
       state.loding = false;
       state.user = null;
+      state.token = "";
     });
   },
 });

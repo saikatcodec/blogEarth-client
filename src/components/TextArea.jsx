@@ -4,7 +4,13 @@ const TextArea = (props) => {
   return (
     <fieldset className="space-y-1">
       <Label htmlFor={props.name}>{props.text}</Label>
-      <Textarea id={props.name} placeholder={props.placeholder} rows={3} />
+      <Textarea
+        name={props.name}
+        id={props.name}
+        placeholder={props.placeholder}
+        rows={3}
+        onChange={props.onChange}
+      />
     </fieldset>
   );
 };

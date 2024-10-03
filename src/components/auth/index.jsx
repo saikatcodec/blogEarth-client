@@ -1,7 +1,8 @@
 import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
-import Register from "./Register";
-import Login from "./../../features/Login";
+
+import Login from "./../../features/login/Login";
+import Register from "./../../features/register/Register";
 
 const Index = () => {
   const location = useLocation();

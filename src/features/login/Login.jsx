@@ -4,9 +4,9 @@ import { Button } from "keep-react";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
-import TextInput from "../components/auth/TextInput";
-import PasswordInput from "../components/auth/PasswordInput";
-import { InputIconTag } from "../../utils/InputIconTag";
+import TextInput from "../../components/auth/TextInput";
+import PasswordInput from "../../components/auth/PasswordInput";
+import { InputIconTag } from "../../../utils/InputIconTag";
 import { loginApi } from "./loginSlice";
 
 const Login = () => {
@@ -31,6 +31,7 @@ const Login = () => {
         text="Email*"
         value={formData.email}
         onChange={onChangeHandler}
+        required={true}
       >
         <Envelope size={InputIconTag.size} color={InputIconTag.color} />
       </TextInput>
@@ -42,6 +43,7 @@ const Login = () => {
         text="Password*"
         value={formData.password}
         onChange={onChangeHandler}
+        required={true}
       >
         <Password size={InputIconTag.size} color={InputIconTag.color} />
       </PasswordInput>

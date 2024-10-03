@@ -12,6 +12,7 @@ const TextInput = (props) => {
           className="ps-11"
           value={props.value}
           onChange={props.onChange}
+          required={props.required || false}
         />
         <InputIcon>{props.children}</InputIcon>
       </div>
