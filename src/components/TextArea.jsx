@@ -9,6 +9,7 @@ const TextArea = (props) => {
         id={props.name}
         placeholder={props.placeholder}
         rows={3}
+        value={props.value}
         onChange={props.onChange}
       />
     </fieldset>

@@ -39,14 +39,11 @@ const loginSlice = createSlice({
       const data = action.payload;
 
       state.loding = false;
+      state.error = "";
       if (data.status === "success") {
         state.user = data.data.user_email;
         state.token = `Bearer ${data.data.token}`;
         localStorage.setItem("token", `Bearer ${data.data.token}`);
-      } else {
-        state.error = data.msg;
-        state.user = null;
-        console.log("here");
       }
     });
 

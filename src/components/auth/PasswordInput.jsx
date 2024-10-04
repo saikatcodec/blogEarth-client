@@ -12,6 +12,7 @@ const PasswordInput = (props) => {
           className="ps-11"
           type="password"
           value={props.value}
+          required={props.required}
           onChange={props.onChange}
         />
         <InputIcon>{props.children}</InputIcon>
