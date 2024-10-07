@@ -10,7 +10,7 @@ import { Button, Spinner } from "keep-react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
-import { InputIconTag } from "../../../utils/InputIconTag.js";
+import { InputIconTag } from "../../utils/InputIconTag.js";
 import PasswordInput from "../../components/auth/PasswordInput.jsx";
 import TextArea from "../../components/TextArea.jsx";
 import TextInput from "./../../components/auth/TextInput";

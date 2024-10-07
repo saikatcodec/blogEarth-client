@@ -1,8 +1,8 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
-import { loginUrl } from "../../../utils/userUrl";
-import getToken from "../../../utils/getTokenFromLocalStore";
+import { loginUrl } from "../../utils/userUrl";
+import { getToken, setToken } from "../../utils/aboutToken";
 
 const initialState = {
   loading: false,
@@ -28,7 +28,7 @@ export const loginApi = createAsyncThunk(
 );
 
 const loginSlice = createSlice({
-  name: "auth",
+  name: "login",
   initialState,
   extraReducers: (builder) => {
     builder.addCase(loginApi.pending, (state) => {
@@ -43,7 +43,7 @@ const loginSlice = createSlice({
       if (data.status === "success") {
         state.user = data.data.user_email;
         state.token = `Bearer ${data.data.token}`;
-        localStorage.setItem("token", `Bearer ${data.data.token}`);
+        setToken(token);
       }
     });
 

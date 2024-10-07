@@ -4,3 +4,4 @@ export default baseUrl;
 
 export const loginUrl = `${baseUrl}/user/login`;
 export const registerUrl = `${baseUrl}/user/register`;
+export const verifyAuth = `${baseUrl}/verify`;

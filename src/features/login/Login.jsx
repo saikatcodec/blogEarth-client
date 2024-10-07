@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import TextInput from "../../components/auth/TextInput";
 import PasswordInput from "../../components/auth/PasswordInput";
-import { InputIconTag } from "../../../utils/InputIconTag";
+import { InputIconTag } from "../../utils/InputIconTag";
 import { loginApi } from "./loginSlice";
 import AlertComponent from "../../components/AlertComponent";
 
