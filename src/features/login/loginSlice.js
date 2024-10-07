@@ -5,7 +5,7 @@ import { loginUrl } from "../../../utils/userUrl";
 import getToken from "../../../utils/getTokenFromLocalStore";
 
 const initialState = {
-  loding: false,
+  loading: false,
   user: null,
   token: getToken(),
   error: "",
@@ -32,13 +32,13 @@ const loginSlice = createSlice({
   initialState,
   extraReducers: (builder) => {
     builder.addCase(loginApi.pending, (state) => {
-      state.loding = true;
+      state.loading = true;
     });
 
     builder.addCase(loginApi.fulfilled, (state, action) => {
       const data = action.payload;
 
-      state.loding = false;
+      state.loading = false;
       state.error = "";
       if (data.status === "success") {
         state.user = data.data.user_email;
@@ -48,8 +48,8 @@ const loginSlice = createSlice({
     });
 
     builder.addCase(loginApi.rejected, (state, action) => {
-      state.error = action.payload;
-      state.loding = false;
+      state.error = action.payload?.msg;
+      state.loading = false;
       state.user = null;
       state.token = "";
     });

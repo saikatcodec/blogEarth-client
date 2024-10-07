@@ -29,9 +29,9 @@ const initState = {
 };
 
 function Register() {
-  const dispacth = useDispatch();
-  const data = useSelector((state) => state.register);
-  const [formData, setFormData] = useState(initState);
+  const dispacth = useDispatch(); // To dispatch the action
+  const data = useSelector((state) => state.register); // Retrieve register state from the store
+  const [formData, setFormData] = useState(initState); // State for
   const [alertProps, setAlertProps] = useState({
     show: true,
     type: "",
