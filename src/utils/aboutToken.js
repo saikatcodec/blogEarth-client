@@ -3,5 +3,5 @@ export const getToken = () => {
 };
 
 export const setToken = (token) => {
-  localStorage.setItem("token", `Bearer ${data.data.token}`);
+  localStorage.setItem("token", token);
 };

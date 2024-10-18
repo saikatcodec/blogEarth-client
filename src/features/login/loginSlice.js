@@ -43,7 +43,7 @@ const loginSlice = createSlice({
       if (data.status === "success") {
         state.user = data.data.user_email;
         state.token = `Bearer ${data.data.token}`;
-        setToken(token);
+        setToken(state.token);
       }
     });
 
